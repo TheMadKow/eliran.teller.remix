@@ -29,6 +29,9 @@ dependencies:
   i18next-http-backend:
     specifier: ^2.2.2
     version: 2.2.2
+  intl-parse-accept-language:
+    specifier: ^1.0.0
+    version: 1.0.0
   isbot:
     specifier: ^3.6.8
     version: 3.7.0
