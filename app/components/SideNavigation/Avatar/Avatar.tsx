@@ -1,4 +1,4 @@
-import styles from "./avatar.module.css";
+import styles from "./Avatar.module.css";
 
 export interface AvatarProps {
   imageSrc: string;

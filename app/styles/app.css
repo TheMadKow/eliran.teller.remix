@@ -12,5 +12,5 @@
 
 :root {
   font-family: "PT Sans", "Roboto", "Open Sans", "Assistant", sans-serif;
-  color: var(--main-primary-color);
+  color: var(--color-fg-primary);
 }
