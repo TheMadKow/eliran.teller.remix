@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 1.2rem;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.avatar {
+  height: 460px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.title {
+  text-align: center;
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.32px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: "Rockybilly", cursive;
+  text-align: center;
+  margin-top: -15px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.32px;
+}

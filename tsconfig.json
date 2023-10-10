@@ -1,5 +1,15 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "stories/.built-in/Button.stories.ts", "stories/.built-in/Button.tsx", "stories/.built-in/Header.stories.ts", "stories/.built-in/Header.tsx", "stories/.built-in/Page.stories.ts", "stories/.built-in/Page.tsx"],
+  "include": [
+    "remix.env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "stories/.built-in/Button.stories.ts",
+    "stories/.built-in/Button.tsx",
+    "stories/.built-in/Header.stories.ts",
+    "stories/.built-in/Header.tsx",
+    "stories/.built-in/Page.stories.ts",
+    "stories/.built-in/Page.tsx"
+  ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
     "isolatedModules": true,

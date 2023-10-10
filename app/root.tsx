@@ -1,5 +1,8 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
 import { json, type LinksFunction } from "@remix-run/node";
+import { useChangeLanguage } from "remix-i18next";
+import { useTranslation } from "react-i18next";
+import i18next from "~/i18next.server";
 import {
   Links,
   LiveReload,
@@ -13,10 +16,6 @@ import {
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
-
-import { useChangeLanguage } from "remix-i18next";
-import { useTranslation } from "react-i18next";
-import i18next from "~/i18next.server";
 
 interface LoaderArgs {
   request: Request;
@@ -36,7 +35,7 @@ export let handle = {
 };
 
 export default function App() {
-    // Get the locale from the loader
+  // Get the locale from the loader
   let { locale } = useLoaderData<typeof loader>();
 
   let { i18n } = useTranslation();
