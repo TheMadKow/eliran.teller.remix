@@ -2,21 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { reactRouterParameters } from "storybook-addon-react-router-v6";
 
 import SideNavigation from "./SideNavigation";
-
-const dataLinks = [
-  {
-    id: "about",
-    title: "About Me",
-    url: "/about",
-    iconUrl: "/resources/icons/face.svg",
-  },
-  {
-    id: "resume",
-    title: "Resume",
-    url: "/resume",
-    iconUrl: "/resources/icons/cog.svg",
-  },
-];
+import { mockSideNavigation } from "./_mock/mockData";
 
 const meta = {
   title: "Components/Side Navigation",
@@ -39,14 +25,6 @@ export const Default: Story = {
     }),
   },
   args: {
-    links: {
-      links: dataLinks,
-    },
-    avatar: {
-      imageSrc: "../../../../public/resources/images/avatar.webp",
-      imageAlt: "Eliran Teller (Image)",
-      name: `Eliran Teller`,
-      subtitle: "Software Developer",
-    },
+    ...mockSideNavigation,
   },
 };

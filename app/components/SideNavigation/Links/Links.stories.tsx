@@ -2,24 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { reactRouterParameters } from "storybook-addon-react-router-v6";
 
 import Links from "./Links";
-
-const dataLinks = [
-  {
-    id: "about",
-    title: "About Me",
-    url: "/about",
-    iconUrl: "/resources/icons/face.svg",
-  },
-  {
-    id: "resume",
-    title: "Resume",
-    url: "/resume",
-    iconUrl: "/resources/icons/cog.svg",
-  },
-];
+import { mockSideNavigation } from "../_mock/mockData";
 
 const meta = {
-  title: "Components/Side Navigation/Links",
+  title: "Components/Side Navigation/Sections/Links",
   component: Links,
   tags: ["autodocs"],
   parameters: {
@@ -32,7 +18,7 @@ type Story = StoryObj<typeof Links>;
 
 export const Default: Story = {
   args: {
-    links: dataLinks,
+    links: mockSideNavigation.links.links,
   },
 };
 
@@ -45,7 +31,7 @@ export const About: Story = {
     }),
   },
   args: {
-    links: dataLinks,
+    links: mockSideNavigation.links.links,
   },
 };
 
@@ -58,6 +44,6 @@ export const Resume: Story = {
     }),
   },
   args: {
-    links: dataLinks,
+    links: mockSideNavigation.links.links,
   },
 };

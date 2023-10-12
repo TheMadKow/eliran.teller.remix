@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Avatar from "./Avatar";
+import QuickActions from "./QuickActions";
 import { mockSideNavigation } from "../_mock/mockData";
 
 const meta = {
-  title: "Components/Side Navigation/Sections/Avatar",
-  component: Avatar,
+  title: "Components/Side Navigation/Sections/QuickActions",
+  component: QuickActions,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof Avatar>;
+} satisfies Meta<typeof QuickActions>;
 
 export default meta;
-type Story = StoryObj<typeof Avatar>;
+type Story = StoryObj<typeof QuickActions>;
 
 export const Default: Story = {
   args: {
-    ...mockSideNavigation.avatar,
+    ...mockSideNavigation.quickActions,
   },
 };

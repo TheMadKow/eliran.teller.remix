@@ -1,5 +1,7 @@
 import { NavLink } from "@remix-run/react";
 import styles from "./Links.module.css";
+import type { ReactNode } from "react";
+import type { IconProps } from "~/components/Icons/types";
 export interface LinksProps {
   links: LinkItem[];
 }
@@ -8,7 +10,7 @@ export interface LinkItem {
   id: string;
   title: string;
   url: string;
-  iconUrl: string;
+  Icon: (props: Partial<IconProps>) => ReactNode;
 }
 
 export default function Menu({ links }: LinksProps) {
@@ -22,7 +24,7 @@ export default function Menu({ links }: LinksProps) {
                 isActive ? styles.linkBoxActive : ""
               }`}
             >
-              <img alt={link.title} src={link.iconUrl}></img>
+              <link.Icon aria-label={link.title} />
               <span>{link.title}</span>
             </div>
           )}

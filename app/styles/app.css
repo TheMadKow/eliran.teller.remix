@@ -13,4 +13,5 @@
 :root {
   font-family: "PT Sans", "Roboto", "Open Sans", "Assistant", sans-serif;
   color: var(--color-fg-primary);
+  fill: var(--color-fg-primary);
 }

@@ -30,11 +30,14 @@
   align-items: center;
   padding-left: 4.6rem;
   gap: 1.65rem;
+
+  transition: all 0.2s;
 }
 
 .linkBox:hover {
   transition: all 0.2s;
   color: var(--color-absolute-white);
+  fill: var(--color-absolute-white);
   background-color: var(--color-accent);
 }
 
@@ -45,6 +48,7 @@
 
 .linkBoxActive:hover {
   color: var(--color-fg-primary);
+  fill: var(--color-fg-primary);
   background-color: var(--color-absolute-white);
   box-shadow: 1px 0px 11px 0px rgba(0, 0, 0, 0.2);
 }
