@@ -8,6 +8,7 @@ export interface LinkItem {
   id: string;
   title: string;
   url: string;
+  iconUrl: string;
 }
 
 export default function Menu({ links }: LinksProps) {
@@ -21,7 +22,7 @@ export default function Menu({ links }: LinksProps) {
                 isActive ? styles.linkBoxActive : ""
               }`}
             >
-              <span>O</span>
+              <img alt={link.title} src={link.iconUrl}></img>
               <span>{link.title}</span>
             </div>
           )}

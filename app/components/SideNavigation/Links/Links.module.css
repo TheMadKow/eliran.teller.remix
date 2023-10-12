@@ -10,14 +10,15 @@
 .link {
   color: var(--color-fg-primary);
   text-decoration: none;
+
+  width: 513px;
 }
 
 .linkBox {
   border-radius: 0 28px 28px 0;
 
-  width: 516px;
   height: 56px;
-  flex-shrink: 0;
+  width: auto;
 
   font-size: 20px;
   font-style: normal;
