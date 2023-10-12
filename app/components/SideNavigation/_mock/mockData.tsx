@@ -1,4 +1,4 @@
-import { CogIcon, FaceIcon } from "../../Icons";
+import { CogIcon, FaceIcon } from "~/components/Icons";
 import type { SideNavigationProps } from "../SideNavigation";
 
 export const mockSideNavigation: SideNavigationProps = {

@@ -1,5 +1,5 @@
 import styles from "./QuickActions.module.css";
-import { AtIcon, FileIcon, GlobeIcon } from "../../Icons";
+import { AtIcon, FileIcon, GlobeIcon } from "~/components/Icons";
 import { clsx } from "clsx";
 
 export interface Language {
