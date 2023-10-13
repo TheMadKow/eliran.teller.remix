@@ -9,12 +9,13 @@
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
     "test": "vitest --config ./vitest.config.ts",
+    "test:once": "vitest run --config ./vitest.config.ts",
     "lint": "eslint ./app && prettier -w ./app",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky install",
     "husky:precommit": "pnpm lint",
-    "husky:prepush": "pnpm test"
+    "husky:prepush": "pnpm test:once"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.0.1",
