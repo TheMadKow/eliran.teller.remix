@@ -17,7 +17,7 @@ export default function Menu({
   quickActions,
 }: SideNavigationProps) {
   return (
-    <div className={styles.container}>
+    <div role="menu" className={styles.container}>
       <Avatar {...avatar} />
       <Links {...links} />
       <QuickActions {...quickActions} />

@@ -8,6 +8,7 @@
     "dev": "remix dev --manual",
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
+    "test": "vitest --config ./vitest.config.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -17,7 +18,9 @@
     "@remix-run/react": "^2.0.1",
     "@remix-run/serve": "^2.0.1",
     "@svgr/plugin-svgo": "^8.1.0",
+    "@testing-library/react": "^14.0.0",
     "clsx": "^2.0.0",
+    "happy-dom": "^12.9.1",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-fs-backend": "^2.2.0",
@@ -32,7 +35,8 @@
     "storybook": "^7.4.6",
     "storybook-addon-react-router-v6": "^2.0.7",
     "vite": "^4.4.11",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^0.34.6"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.0.1",
