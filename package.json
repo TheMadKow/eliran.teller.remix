@@ -11,7 +11,10 @@
     "test": "vitest --config ./vitest.config.ts",
     "lint": "eslint ./app && prettier -w ./app",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "husky install",
+    "husky:precommit": "pnpm lint",
+    "husky:prepush": "pnpm test"
   },
   "dependencies": {
     "@remix-run/css-bundle": "^2.0.1",
@@ -55,7 +58,8 @@
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.38.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "husky": "^8.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
