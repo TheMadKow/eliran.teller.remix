@@ -17,6 +17,9 @@ dependencies:
   '@remix-run/serve':
     specifier: ^2.0.1
     version: 2.0.1(typescript@5.2.2)
+  '@remix-run/testing':
+    specifier: ^2.0.1
+    version: 2.0.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
   '@svgr/plugin-svgo':
     specifier: ^8.1.0
     version: 8.1.0(@svgr/core@8.1.0)(typescript@5.2.2)
@@ -2976,6 +2979,26 @@ packages:
       source-map: 0.7.4
       type-fest: 4.4.0
       typescript: 5.2.2
+
+  /@remix-run/testing@2.0.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-EgiuKzxf1RLhFzXw1W9jGPPbikbSNu9i/9HHukYqPePMlmtWmvSreb+LRAtyyNaxreyav03YoR2UZbpRRjmFYA==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      react: ^18.0.0
+      typescript: ^5.1.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@remix-run/node': 2.0.1(typescript@5.2.2)
+      '@remix-run/react': 2.0.1(react-dom@18.2.0)(react@18.2.0)(typescript@5.2.2)
+      '@remix-run/router': 1.9.0
+      react: 18.2.0
+      react-router-dom: 6.16.0(react-dom@18.2.0)(react@18.2.0)
+      typescript: 5.2.2
+    transitivePeerDependencies:
+      - react-dom
+    dev: false
 
   /@remix-run/web-blob@3.1.0:
     resolution: {integrity: sha512-owGzFLbqPH9PlKb8KvpNJ0NO74HWE2euAn61eEiyCXX/oteoVzTVSN8mpLgDjaxBf2btj5/nUllSUgpyd6IH6g==}

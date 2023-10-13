@@ -28,7 +28,7 @@ export default function Avatar({
   contact,
 }: QuickActionsProps) {
   return (
-    <div className={styles.container}>
+    <div role="document" className={styles.container}>
       <div className={clsx(styles.quickButton, styles.language)} role="button">
         <GlobeIcon aria-label={language.active.name} className={styles.icon} />
         {language.active.name}

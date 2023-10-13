@@ -14,7 +14,7 @@ export default function Avatar({
   subtitle,
 }: AvatarProps) {
   return (
-    <div className={styles.container}>
+    <div role="document" className={styles.container}>
       <div className={styles.textContainer}>
         <span className={styles.title}>{name}</span>
         <span className={styles.subtitle}>{subtitle}</span>

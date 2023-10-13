@@ -1,20 +1,63 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
+import { render, screen, cleanup } from "~/utils/test";
 import SideNavigation from "./SideNavigation";
 import { mockSideNavigation } from "./_mock/mockData";
-import { RemixBrowser } from "@remix-run/react";
+import Avatar from "./Avatar/Avatar";
 
-describe("<SideNavigation/>", () => {
-  it("should render", async () => {
+describe("<SideNavigation/>", async () => {
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("should render component", async () => {
     // ARRANGE
-    render(<SideNavigation {...mockSideNavigation} />, {
-      wrapper: RemixBrowser,
-    });
+    render(<SideNavigation {...mockSideNavigation} />);
+
+    // ACT + ASSERT
+    await screen.findByRole("menu");
+  });
+
+  it("should render (sub) components correctly", async () => {
+    // ARRANGE
+    render(<SideNavigation {...mockSideNavigation} />);
 
     // ACT
-    const menu = await screen.findByRole("menu");
+    const subSections = await screen.findAllByRole("document");
 
     // ASSERT
-    expect(menu).toBeDefined();
+    expect(subSections.length).toBe(3);
+  });
+
+  describe("<Avatar />", async () => {
+    it("should render correctly", async () => {
+      // ARRANGE
+      render(<Avatar {...mockSideNavigation.avatar} />);
+
+      // ACT + ASSERT
+      await screen.findByRole("document");
+    });
+
+    it("should render texts correctly", async () => {
+      // ARRANGE
+      render(<Avatar {...mockSideNavigation.avatar} />);
+
+      // ACT + ASSERT
+      await screen.findByText(mockSideNavigation.avatar.name);
+      await screen.findByText(mockSideNavigation.avatar.subtitle);
+    });
+
+    it("should render image correctly", async () => {
+      // ARRANGE
+      render(<Avatar {...mockSideNavigation.avatar} />);
+
+      // ACT + ASSERT
+      const image = await screen.findByRole("img");
+      expect(image.getAttribute("src")).toBe(
+        mockSideNavigation.avatar.imageSrc
+      );
+      expect(image.getAttribute("alt")).toBe(
+        mockSideNavigation.avatar.imageAlt
+      );
+    });
   });
 });

@@ -15,7 +15,7 @@ export interface LinkItem {
 
 export default function Menu({ links }: LinksProps) {
   return (
-    <div className={styles.container}>
+    <div role="document" className={styles.container}>
       {links.map((link) => (
         <NavLink className={styles.link} key={link.id} to={link.url}>
           {({ isActive }) => (
