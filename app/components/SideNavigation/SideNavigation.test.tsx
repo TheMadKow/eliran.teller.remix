@@ -53,10 +53,10 @@ describe("<SideNavigation/>", async () => {
       // ACT + ASSERT
       const image = await screen.findByRole("img");
       expect(image.getAttribute("src")).toBe(
-        mockSideNavigation.avatar.imageSrc
+        mockSideNavigation.avatar.imageSrc,
       );
       expect(image.getAttribute("alt")).toBe(
-        mockSideNavigation.avatar.imageAlt
+        mockSideNavigation.avatar.imageAlt,
       );
     });
   });

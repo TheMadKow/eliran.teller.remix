@@ -9,6 +9,7 @@
     "start": "remix-serve ./build/index.js",
     "typecheck": "tsc",
     "test": "vitest --config ./vitest.config.ts",
+    "lint": "eslint ./app && prettier -w ./app",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

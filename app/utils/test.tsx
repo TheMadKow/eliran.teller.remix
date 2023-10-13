@@ -5,7 +5,7 @@ import type { ReactElement } from "react";
 
 const customRender = (
   ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper"> & { path?: string }
+  options?: Omit<RenderOptions, "wrapper"> & { path?: string },
 ) => {
   let RemixStub = unstable_createRemixStub([
     {
