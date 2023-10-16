@@ -18,19 +18,23 @@
     "husky:prepush": "pnpm test:once"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "^2.0.1",
-    "@remix-run/node": "^2.0.1",
-    "@remix-run/react": "^2.0.1",
-    "@remix-run/serve": "^2.0.1",
-    "@remix-run/testing": "^2.0.1",
+    "@formatjs/intl": "^2.9.3",
+    "@remix-run/css-bundle": "^2.1.0",
+    "@remix-run/node": "^2.1.0",
+    "@remix-run/react": "^2.1.0",
+    "@remix-run/serve": "^2.1.0",
+    "@remix-run/testing": "^2.1.0",
     "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/react": "^14.0.0",
+    "@types/js-cookie": "^3.0.4",
     "clsx": "^2.0.0",
     "happy-dom": "^12.9.1",
     "isbot": "^3.6.8",
+    "js-cookie": "^3.0.5",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-intl": "^6.4.7",
     "storybook": "^7.4.6",
     "storybook-addon-react-router-v6": "^2.0.7",
     "vite": "^4.4.11",
@@ -38,8 +42,8 @@
     "vitest": "^0.34.6"
   },
   "devDependencies": {
-    "@remix-run/dev": "^2.0.1",
-    "@remix-run/eslint-config": "^2.0.1",
+    "@remix-run/dev": "^2.1.0",
+    "@remix-run/eslint-config": "^2.1.0",
     "@storybook/addon-essentials": "7.4.6",
     "@storybook/addon-interactions": "7.4.6",
     "@storybook/addon-links": "7.4.6",
@@ -52,8 +56,8 @@
     "@types/react-dom": "^18.2.7",
     "eslint": "^8.38.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "typescript": "^5.1.6",
-    "husky": "^8.0.0"
+    "husky": "^8.0.0",
+    "typescript": "^5.1.6"
   },
   "engines": {
     "node": ">=18.0.0"

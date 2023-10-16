@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useIntl } from "react-intl";
+import { IntlKeys } from "~/localization/intlKeys";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,9 +10,15 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const message = useIntl();
+  const name = message.formatMessage({ id: IntlKeys.sidemenu.name });
+  const subtitle = message.formatMessage({ id: IntlKeys.sidemenu.subtitle });
+
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <ul>
+        <li>{name}</li>
+        <li>{subtitle}</li>
         <li>
           <a
             target="_blank"
