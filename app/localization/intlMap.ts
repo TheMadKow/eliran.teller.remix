@@ -18,10 +18,10 @@ function readLocaleFile(locale: string) {
     fs.readFileSync(
       path.resolve(
         process.cwd(),
-        `app/localization/translations/${locale}.json`
+        `app/localization/translations/${locale}.json`,
       ),
-      "utf-8"
-    )
+      "utf-8",
+    ),
   ) as IntlMessage;
 }
 

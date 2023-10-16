@@ -16,7 +16,7 @@ export type Next = (intl: IntlShape) => ReturnType<LoaderFunction>;
 export let withIntl = (
   locale: string,
   messages: Record<string, string>,
-  next: Next
+  next: Next,
 ) =>
   next(
     createIntl(
@@ -25,6 +25,6 @@ export let withIntl = (
         defaultLocale: "en",
         messages,
       },
-      cache
-    )
+      cache,
+    ),
   );
