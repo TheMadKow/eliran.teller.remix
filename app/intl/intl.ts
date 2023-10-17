@@ -1,15 +1,22 @@
 import type { IntlShape } from '@formatjs/intl';
 import { createIntl, createIntlCache } from '@formatjs/intl';
-import { intlMapping } from './intlMap';
+import { IntlDir, intlMapping } from './intlMap';
 import type { LoaderFunction } from '@remix-run/node';
 
+const defaultLocale = 'en';
 const cache = createIntlCache();
 
+// get messages, english as baseline
 export const getMessages = (locale: string) =>
-  intlMapping[locale]?.messages ?? intlMapping['en'].messages;
+  locale === defaultLocale
+    ? intlMapping[defaultLocale].messages
+    : {
+        ...intlMapping[defaultLocale].messages,
+        ...intlMapping[locale]?.messages,
+      };
 
 export const getDirection = (locale: string) =>
-  intlMapping[locale]?.direction ?? intlMapping['en'].direction;
+  intlMapping[locale]?.direction ?? IntlDir.LeftToRight;
 
 export type Next = (intl: IntlShape) => ReturnType<LoaderFunction>;
 
@@ -21,8 +28,8 @@ export let withIntl = (
   next(
     createIntl(
       {
-        locale: 'en',
-        defaultLocale: 'en',
+        locale: defaultLocale,
+        defaultLocale: defaultLocale,
         messages,
       },
       cache,
