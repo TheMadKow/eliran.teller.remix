@@ -15,7 +15,7 @@
     "build-storybook": "storybook build",
     "prepare": "husky install",
     "husky:precommit": "pnpm lint",
-    "husky:prepush": "pnpm test:once"
+    "husky:prepush": "pnpm typecheck && pnpm test:once"
   },
   "dependencies": {
     "@formatjs/intl": "^2.9.3",
