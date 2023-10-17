@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import Avatar from "./Avatar";
-import { mockSideNavigation } from "../_mock/mockData";
+import Avatar from './Avatar';
+import { mockSideNavigation } from '../_mock/mockData';
 
 const meta = {
-  title: "Components/Side Navigation/Sections/Avatar",
+  title: 'Components/Side Navigation/Sections/Avatar',
   component: Avatar,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof Avatar>;
 

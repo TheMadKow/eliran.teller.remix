@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import QuickActions from "./QuickActions";
-import { mockSideNavigation } from "../_mock/mockData";
+import QuickActions from './QuickActions';
+import { mockSideNavigation } from '../_mock/mockData';
 
 const meta = {
-  title: "Components/Side Navigation/Sections/QuickActions",
+  title: 'Components/Side Navigation/Sections/QuickActions',
   component: QuickActions,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 } satisfies Meta<typeof QuickActions>;
 

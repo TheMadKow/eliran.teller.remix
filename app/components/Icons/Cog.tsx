@@ -1,5 +1,5 @@
-import * as React from "react";
-import type { IconProps } from "./types";
+import * as React from 'react';
+import type { IconProps } from './types';
 
 const Cog = (props: IconProps) => (
   <svg

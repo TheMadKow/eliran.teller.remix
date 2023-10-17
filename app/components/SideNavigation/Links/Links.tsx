@@ -1,7 +1,7 @@
-import { NavLink } from "@remix-run/react";
-import styles from "./Links.module.css";
-import type { ReactNode } from "react";
-import type { IconProps } from "~/components/Icons/types";
+import { NavLink } from '@remix-run/react';
+import styles from './Links.module.css';
+import type { ReactNode } from 'react';
+import type { IconProps } from '~/components/Icons/types';
 export interface LinksProps {
   links: LinkItem[];
 }
@@ -21,7 +21,7 @@ export default function Menu({ links }: LinksProps) {
           {({ isActive }) => (
             <div
               className={`${styles.linkBox} ${
-                isActive ? styles.linkBoxActive : ""
+                isActive ? styles.linkBoxActive : ''
               }`}
             >
               <link.Icon aria-label={link.title} />

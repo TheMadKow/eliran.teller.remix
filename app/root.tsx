@@ -1,5 +1,5 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import { cssBundleHref } from '@remix-run/css-bundle';
+import type { LinksFunction, LoaderFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -8,14 +8,14 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-} from "@remix-run/react";
-import type { IntlDir, IntlMessage } from "./intl";
-import { getMessages, getDirection } from "./intl";
-import { IntlProvider } from "react-intl";
-import requests from "./utils/requests";
+} from '@remix-run/react';
+import type { IntlDir, IntlMessage } from './intl';
+import { getMessages, getDirection } from './intl';
+import { IntlProvider } from 'react-intl';
+import requests from './utils/requests';
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ];
 
 interface LoaderProps {
@@ -27,7 +27,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   const locale =
     requests.cookies.getLocaleFromHeaderCookies(request) ||
     requests.headers.getLocaleFromAcceptLanguage(request) ||
-    "en";
+    'en';
   const messages = getMessages(locale);
   const direction = getDirection(locale);
 
@@ -53,13 +53,13 @@ export default function App() {
       </head>
       <body>
         <IntlProvider locale={locale} messages={messages}>
-          <a href="#" onClick={() => setLanguage("he")}>
+          <a href="#" onClick={() => setLanguage('he')}>
             HE |
           </a>
-          <a href="#" onClick={() => setLanguage("nl")}>
+          <a href="#" onClick={() => setLanguage('nl')}>
             NL |
           </a>
-          <a href="#" onClick={() => setLanguage("en")}>
+          <a href="#" onClick={() => setLanguage('en')}>
             EN
           </a>
           <Outlet />

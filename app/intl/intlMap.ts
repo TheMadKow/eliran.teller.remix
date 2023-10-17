@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
 export enum IntlDir {
-  RightToLeft = "rtl",
-  LeftToRight = "ltr",
+  RightToLeft = 'rtl',
+  LeftToRight = 'ltr',
 }
 
 export type IntlMessage = Record<string, string>;
@@ -16,11 +16,8 @@ export interface IntlMap {
 function readLocaleFile(locale: string) {
   return JSON.parse(
     fs.readFileSync(
-      path.resolve(
-        process.cwd(),
-        `app/localization/translations/${locale}.json`,
-      ),
-      "utf-8",
+      path.resolve(process.cwd(), `app/intl/languages/${locale}.json`),
+      'utf-8',
     ),
   ) as IntlMessage;
 }
@@ -28,14 +25,14 @@ function readLocaleFile(locale: string) {
 export const intlMapping: Record<string, IntlMap> = {
   en: {
     direction: IntlDir.LeftToRight,
-    messages: readLocaleFile("en"),
+    messages: readLocaleFile('en'),
   },
   he: {
     direction: IntlDir.RightToLeft,
-    messages: readLocaleFile("he"),
+    messages: readLocaleFile('he'),
   },
   nl: {
     direction: IntlDir.LeftToRight,
-    messages: readLocaleFile("nl"),
+    messages: readLocaleFile('nl'),
   },
 };

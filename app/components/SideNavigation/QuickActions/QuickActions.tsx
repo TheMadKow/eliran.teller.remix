@@ -1,9 +1,9 @@
-import styles from "./QuickActions.module.css";
-import { AtIcon, FileIcon, GlobeIcon } from "~/components/Icons";
-import { clsx } from "clsx";
+import styles from './QuickActions.module.css';
+import { AtIcon, FileIcon, GlobeIcon } from '~/components/Icons';
+import { clsx } from 'clsx';
 
 export interface Language {
-  code: "en" | "he" | "nl";
+  code: 'en' | 'he' | 'nl';
   name: string;
 }
 

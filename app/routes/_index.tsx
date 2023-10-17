@@ -1,11 +1,10 @@
-import type { MetaFunction } from "@remix-run/node";
-import { useIntl } from "react-intl";
-import { IntlKeys } from "~/intl/intlKeys";
+import type { MetaFunction } from '@remix-run/node';
+import { IntlKeys, useIntl } from '~/intl';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: 'New Remix App' },
+    { name: 'description', content: 'Welcome to Remix!' },
   ];
 };
 
@@ -15,7 +14,7 @@ export default function Index() {
   const subtitle = message.formatMessage({ id: IntlKeys.sidemenu.subtitle });
 
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
       <ul>
         <li>{name}</li>
         <li>{subtitle}</li>
