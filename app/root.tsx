@@ -9,8 +9,8 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import type { IntlDir, IntlMessage } from "./localization";
-import { getMessages, getDirection } from "./localization";
+import type { IntlDir, IntlMessage } from "./intl";
+import { getMessages, getDirection } from "./intl";
 import { IntlProvider } from "react-intl";
 import requests from "./utils/requests";
 
@@ -24,7 +24,10 @@ interface LoaderProps {
   direction: IntlDir;
 }
 export const loader: LoaderFunction = async ({ request }) => {
-  const locale = requests.cookies.getLocale(request); // ?? requests.headers.getLocale(request) ?? "en";
+  const locale =
+    requests.cookies.getLocaleFromHeaderCookies(request) ||
+    requests.headers.getLocaleFromAcceptLanguage(request) ||
+    "en";
   const messages = getMessages(locale);
   const direction = getDirection(locale);
 
@@ -37,7 +40,7 @@ export default function App() {
   console.log({ locale, messages, direction });
 
   const setLanguage = (lang: string) => {
-    requests.cookies.setLocale(lang);
+    requests.cookies.setLocaleToLocalCookies(lang);
   };
 
   return (

@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useIntl } from "react-intl";
-import { IntlKeys } from "~/localization/intlKeys";
+import { IntlKeys } from "~/intl/intlKeys";
 
 export const meta: MetaFunction = () => {
   return [

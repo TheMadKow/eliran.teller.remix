@@ -24,10 +24,10 @@ function setCookieLocale(locale: string) {
 
 export default {
   headers: {
-    getLocale: getHeaderLocale,
+    getLocaleFromAcceptLanguage: getHeaderLocale,
   },
   cookies: {
-    getLocale: getCookieLocale,
-    setLocale: setCookieLocale,
+    getLocaleFromHeaderCookies: getCookieLocale,
+    setLocaleToLocalCookies: setCookieLocale,
   },
 };
