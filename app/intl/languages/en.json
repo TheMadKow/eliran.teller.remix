@@ -8,11 +8,7 @@
   "sidemenu.lang.hebrew": "עברית",
   "sidemenu.pdf": "PDF",
   "aboutMe.whoAmI": "Who Am I?",
-  "aboutMe.paragraphs": [
-    "a",
-    "b",
-    "c"
-  ],
+  "aboutMe.paragraphs": ["a", "b", "c"],
   "about.fillForm": "tbd",
   "about.form.name": "tbd",
   "about.form.email": "tbd",
@@ -22,43 +18,21 @@
   "cv.work.appsflyer-senior.name": "",
   "cv.work.appsflyer-senior.link": "",
   "cv.work.appsflyer-senior.position": "",
-  "cv.work.appsflyer-senior.bullets": [
-    ""
-  ],
-  "cv.work.appsflyer-senior.tags": [
-    ""
-  ],
+  "cv.work.appsflyer-senior.bullets": [""],
+  "cv.work.appsflyer-senior.tags": [""],
   "cv.work.appsflyer.name": "",
   "cv.work.appsflyer.link": "",
   "cv.work.appsflyer.position": "",
-  "cv.work.appsflyer.bullets": [
-    ""
-  ],
-  "cv.work.appsflyer.tags": [
-    ""
-  ],
-  "cv.technical-skills.proficient": [
-    ""
-  ],
-  "cv.technical-skills.familiar": [
-    ""
-  ],
-  "cv.other-skills": [
-    ""
-  ],
-  "cv.online-courses.udemy": [
-    ""
-  ],
-  "cv.online-courses.others": [
-    ""
-  ],
-  "cv.languages": [
-    ""
-  ],
+  "cv.work.appsflyer.bullets": [""],
+  "cv.work.appsflyer.tags": [""],
+  "cv.technical-skills.proficient": [""],
+  "cv.technical-skills.familiar": [""],
+  "cv.other-skills": [""],
+  "cv.online-courses.udemy": [""],
+  "cv.online-courses.others": [""],
+  "cv.languages": [""],
   "cv.education.tau.name": "",
   "cv.education.tau.link": "",
   "cv.education.tau.materia": "",
-  "cv.education.tau.bullets": [
-    ""
-  ]
+  "cv.education.tau.bullets": [""]
 }
