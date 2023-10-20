@@ -1,11 +1,21 @@
-.container {
+.mainContainer {
   background-color: var(--color-bg-gray);
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
   width: 555px;
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
-  flex-grow: 0;
-  gap: 50px;
+  justify-content: space-between;
+}
+.topContainer {
+  display: flex;
+  flex-direction: column;
   padding-top: 42px;
+  gap: 50px;
+}
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 47px;
 }

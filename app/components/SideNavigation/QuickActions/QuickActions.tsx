@@ -2,14 +2,17 @@ import styles from './QuickActions.module.css';
 import { AtIcon, FileIcon, GlobeIcon } from '~/components/Icons';
 import { clsx } from 'clsx';
 
+export type languageCode = 'en' | 'he' | 'nl';
+
 export interface Language {
-  code: 'en' | 'he' | 'nl';
+  code: languageCode;
   name: string;
 }
 
 export interface QuickActionsProps {
   language: {
-    active: Language;
+    active: languageCode;
+    onChange: (lang: languageCode) => void;
     allowed: Language[];
   };
   resume: {
@@ -29,9 +32,21 @@ export default function Avatar({
 }: QuickActionsProps) {
   return (
     <div role="document" className={styles.container}>
-      <div className={clsx(styles.quickButton, styles.language)} role="button">
-        <GlobeIcon aria-label={language.active.name} className={styles.icon} />
-        {language.active.name}
+      <div className={styles.languageContainer}>
+        {language.allowed.map((lang) => {
+          return (
+            <div
+              role="button"
+              key={lang.code}
+              onClick={() => language.onChange(lang.code)}
+              className={clsx(styles.quickButton, styles.language)}
+            >
+              <GlobeIcon aria-label={lang.name} className={styles.icon} />
+              <div className={styles.languageText}>{lang.name}</div>
+              <div> ⌃ </div>
+            </div>
+          );
+        })}
       </div>
       <div role="button" className={clsx(styles.quickButton, styles.resume)}>
         <FileIcon aria-label={resume.label} className={styles.icon} />
@@ -39,6 +54,7 @@ export default function Avatar({
       </div>
       <div role="button" className={clsx(styles.quickButton, styles.email)}>
         <AtIcon aria-label={contact.label} className={styles.icon} />
+        {contact.email}
       </div>
     </div>
   );

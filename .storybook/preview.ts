@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/react";
 import { withRouter } from "storybook-addon-react-router-v6";
 import "../app/styles/app.css";
+import "../app/styles/storybook.css"
 
 const preview: Preview = {
   decorators: [withRouter],

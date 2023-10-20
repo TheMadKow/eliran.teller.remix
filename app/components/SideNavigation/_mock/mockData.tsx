@@ -26,7 +26,8 @@ export const mockSideNavigation: SideNavigationProps = {
   },
   quickActions: {
     language: {
-      active: { code: 'en', name: 'English' },
+      onChange: () => console.log(''),
+      active: 'en',
       allowed: [
         { code: 'en', name: 'English' },
         { code: 'nl', name: 'Nederlands' },

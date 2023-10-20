@@ -1,7 +1,8 @@
 .container {
   display: flex;
-  flex-direction: flow;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: flex-end;
   flex-shrink: 0;
   gap: 1.55rem;
 }
@@ -34,9 +35,36 @@
   height: 24px;
 }
 
+.languageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 .language {
   width: 273px;
+  height: 56px;
+  margin-left: -1px;
   border-radius: 0px 28px 28px 0px;
+
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.9px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 4.6rem;
+  gap: 1.65rem;
+
+  transition: all 0.2s;
+}
+
+.languageText {
+  width: 150px;
 }
 
 .resume {
