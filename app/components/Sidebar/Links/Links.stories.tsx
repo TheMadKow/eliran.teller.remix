@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Links>;
 
 export const Default: Story = {
   args: {
-    links: mockSideNavigation.links.links,
+    ...mockSideNavigation.links,
   },
 };
 
@@ -31,7 +31,7 @@ export const About: Story = {
     }),
   },
   args: {
-    links: mockSideNavigation.links.links,
+    ...mockSideNavigation.links,
   },
 };
 
@@ -44,6 +44,6 @@ export const Resume: Story = {
     }),
   },
   args: {
-    links: mockSideNavigation.links.links,
+    ...mockSideNavigation.links,
   },
 };
