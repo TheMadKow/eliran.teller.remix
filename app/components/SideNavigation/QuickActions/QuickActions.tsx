@@ -1,18 +1,26 @@
 import styles from './QuickActions.module.css';
-import { AtIcon, FileIcon, GlobeIcon } from '~/components/Icons';
+import { AtIcon, ChevronUpIcon, FileIcon, GlobeIcon } from '~/components/Icons';
 import { clsx } from 'clsx';
+import { useState } from 'react';
 
-export type languageCode = 'en' | 'he' | 'nl';
+export type LanguageCode = 'en' | 'he' | 'nl';
 
 export interface Language {
-  code: languageCode;
+  code: LanguageCode;
   name: string;
 }
 
+interface QuickLanguageProps {
+  language: Language;
+  onClick: () => void;
+  showOption: boolean;
+  showToggle: boolean;
+}
+
 export interface QuickActionsProps {
-  language: {
-    active: languageCode;
-    onChange: (lang: languageCode) => void;
+  languages: {
+    active: LanguageCode;
+    onChange: (lang: LanguageCode) => void;
     allowed: Language[];
   };
   resume: {
@@ -25,37 +33,93 @@ export interface QuickActionsProps {
   };
 }
 
-export default function Avatar({
+function LanguageSelect({
   language,
+  onClick,
+  showOption,
+  showToggle,
+}: QuickLanguageProps) {
+  if (!showOption) {
+    return null;
+  }
+
+  return (
+    <div
+      role="button"
+      key={language.code}
+      onClick={onClick}
+      className={clsx(styles.quickButton, styles.language)}
+    >
+      <GlobeIcon aria-label={language.name} className={styles.icon} />
+      <div className={styles.languageText}>{language.name}</div>
+      {showToggle && <ChevronUpIcon />}
+    </div>
+  );
+}
+
+export default function Avatar({
+  languages,
   resume,
   contact,
 }: QuickActionsProps) {
+  const [showLanguage, setShowLanguage] = useState<boolean>(false);
+  const onActiveLanguageClicked = () => {
+    setShowLanguage((prev) => !prev);
+  };
+  const onInactiveLanguageClicked = (lang: LanguageCode) => {
+    setShowLanguage(false);
+    languages.onChange(lang);
+  };
+
+  const selectedLanguage = languages.allowed.find(
+    (lang) => lang.code === languages.active,
+  ) || { code: 'en', name: 'English' };
+
+  const popoverLanguages = languages.allowed.filter(
+    (lang) => lang.code !== languages.active,
+  );
+
   return (
     <div role="document" className={styles.container}>
       <div className={styles.languageContainer}>
-        {language.allowed.map((lang) => {
-          return (
-            <div
-              role="button"
-              key={lang.code}
-              onClick={() => language.onChange(lang.code)}
-              className={clsx(styles.quickButton, styles.language)}
-            >
-              <GlobeIcon aria-label={lang.name} className={styles.icon} />
-              <div className={styles.languageText}>{lang.name}</div>
-              <div> ⌃ </div>
-            </div>
-          );
-        })}
+        <LanguageSelect
+          language={selectedLanguage}
+          onClick={onActiveLanguageClicked}
+          showOption={true}
+          showToggle={true}
+        />
+
+        <div className={styles.languagePopover}>
+          {popoverLanguages.map((language) => {
+            return (
+              <LanguageSelect
+                showOption={showLanguage}
+                showToggle={false}
+                key={language.code}
+                language={language}
+                onClick={() => onInactiveLanguageClicked(language.code)}
+              />
+            );
+          })}
+        </div>
       </div>
-      <div role="button" className={clsx(styles.quickButton, styles.resume)}>
+      <a
+        href={resume.downloadUrl}
+        role="button"
+        className={clsx(styles.quickButton, styles.resume)}
+        download={true}
+      >
         <FileIcon aria-label={resume.label} className={styles.icon} />
         {resume.label}
-      </div>
-      <div role="button" className={clsx(styles.quickButton, styles.email)}>
+      </a>
+      <a
+        href={`mailto:${contact.email}`}
+        role="button"
+        className={clsx(styles.quickButton, styles.email)}
+      >
         <AtIcon aria-label={contact.label} className={styles.icon} />
-        {contact.email}
-      </div>
+        <div className={styles.emailText}> {contact.email}</div>
+      </a>
     </div>
   );
 }

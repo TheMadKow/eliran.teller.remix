@@ -39,11 +39,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 0.5rem;
+  position: relative;
 }
 
 .language {
-  width: 273px;
+  background-color: var(--color-bg-gray);
+  width: calc(273px - 4.6rem);
   height: 56px;
   margin-left: -1px;
   border-radius: 0px 28px 28px 0px;
@@ -58,26 +59,58 @@
   align-items: center;
   justify-content: flex-start;
   padding-left: 4.6rem;
-  gap: 1.65rem;
 
   transition: all 0.2s;
 }
 
+.languagePopover {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  bottom: 0;
+  /* Popover margin is bottom padding + height + gap */
+  margin-bottom: calc(47px + 56px + 0.5rem);
+}
+
 .languageText {
-  width: 150px;
+  width: 85px;
+  padding-left: 26px;
 }
 
 .resume {
+  color: var(--color-fg-primary);
   width: 125px;
   border-radius: 28px;
+  text-decoration: none;
 }
 
 .email {
+  text-decoration: none;
   width: 56px;
   border-radius: 28px;
+  transition: width 0.5s;
 }
 
 .email:hover {
   width: 285px;
   border-radius: 28px;
+  transition: width 0.5s;
+}
+
+.emailText {
+  width: 0;
+  display: none;
+  overflow-x: hidden;
+  transition: width 0.5s;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27.9px; /* 139.5% */
+}
+.email:hover > .emailText {
+  width: auto;
+  display: block;
+  transition: width 0.5s;
 }

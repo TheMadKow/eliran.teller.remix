@@ -1,6 +1,6 @@
 .mainContainer {
   background-color: var(--color-bg-gray);
-  height: 100%;
+  height: auto;
   min-height: 100%;
   width: 555px;
   display: flex;

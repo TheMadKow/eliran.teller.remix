@@ -25,8 +25,8 @@ export const mockSideNavigation: SideNavigationProps = {
     ],
   },
   quickActions: {
-    language: {
-      onChange: () => console.log(''),
+    languages: {
+      onChange: (lang) => console.log('lang click: ', lang),
       active: 'en',
       allowed: [
         { code: 'en', name: 'English' },
@@ -35,12 +35,12 @@ export const mockSideNavigation: SideNavigationProps = {
       ],
     },
     resume: {
-      downloadUrl: '#',
+      downloadUrl: '~/resources/pdfs/test.pdf',
       label: 'PDF',
     },
     contact: {
-      email: 'email@gmail.com',
-      label: 'Email@gmail.com',
+      email: 'eliran.teller@gmail.com',
+      label: 'eliran.teller@gmail.com',
     },
   },
 };
