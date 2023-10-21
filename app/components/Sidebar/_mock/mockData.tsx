@@ -1,7 +1,7 @@
 import { CogIcon, FaceIcon } from '~/components/Icons';
-import type { SideNavigationProps } from '../SideNavigation';
+import type { SidebarProps } from '../Sidebar';
 
-export const mockSideNavigation: SideNavigationProps = {
+export const mockSideNavigation: SidebarProps = {
   avatar: {
     imageSrc: '../../../../public/resources/images/avatar.webp',
     imageAlt: 'Eliran Teller (Image)',

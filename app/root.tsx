@@ -9,39 +9,98 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from '@remix-run/react';
-import type { IntlDir, IntlMessage } from './intl';
-import { getMessages, getDirection } from './intl';
+import { createIntlFromRequest, getIntlParamsFromRequest } from './intl';
+import type { IntlShape } from 'react-intl';
 import { IntlProvider } from 'react-intl';
+import '~/styles/app.css';
+import Layout from './components/Layout/Layout';
+import type { AvatarProps } from './components/Sidebar/Avatar/Avatar';
+import type { LinksProps } from './components/Sidebar/Links/Links';
+import type {
+  LanguageCode,
+  QuickActionsProps,
+} from './components/Sidebar/QuickActions/QuickActions';
+import type { SidebarProps } from './components/Sidebar/Sidebar';
 import requests from './utils/requests';
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ];
 
-interface LoaderProps {
-  locale: string;
-  messages: IntlMessage;
-  direction: IntlDir;
-}
-export const loader: LoaderFunction = async ({ request }) => {
-  const locale =
-    requests.cookies.getLocaleFromHeaderCookies(request) ||
-    requests.headers.getLocaleFromAcceptLanguage(request) ||
-    'en';
-  const messages = getMessages(locale);
-  const direction = getDirection(locale);
+const createSidebarProps = (locale: string, intl: IntlShape) => {
+  // Create Avatar
+  const avatar: AvatarProps = {
+    name: intl.formatMessage({ id: 'sidebar.name' }),
+    subtitle: intl.formatMessage({ id: 'sidebar.subtitle' }),
+    imageAlt: intl.formatMessage({ id: 'sidebar.name' }),
+    imageSrc: '/resources/images/avatar.webp',
+  };
 
-  return { locale, messages, direction };
+  // Create Links
+  const links: LinksProps = {
+    about: {
+      id: 'about',
+      title: intl.formatMessage({ id: 'sidebar.aboutMe' }),
+      url: '/',
+    },
+    cv: {
+      id: 'cv',
+      title: intl.formatMessage({ id: 'sidebar.cv' }),
+      url: '/cv',
+    },
+  };
+
+  // Create Quick Actions
+  const quickActions: QuickActionsProps = {
+    contact: {
+      email: intl.formatMessage({ id: 'sidebar.email' }),
+      label: intl.formatMessage({ id: 'sidebar.email' }),
+    },
+    resume: {
+      downloadUrl: '/',
+      label: intl.formatMessage({ id: 'sidebar.pdf' }),
+    },
+    languages: {
+      active: locale as LanguageCode,
+      // Should be overridden in the client
+      handleChange: () => {},
+      allowed: [
+        {
+          code: 'en',
+          name: intl.formatMessage({ id: 'sidebar.lang.english' }),
+        },
+        { code: 'nl', name: intl.formatMessage({ id: 'sidebar.lang.dutch' }) },
+        { code: 'he', name: intl.formatMessage({ id: 'sidebar.lang.hebrew' }) },
+      ],
+    },
+  };
+
+  const props: SidebarProps = {
+    avatar,
+    links,
+    quickActions,
+  };
+
+  return props;
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const { direction, locale, messages } = getIntlParamsFromRequest(request);
+  const intl = createIntlFromRequest(request);
+  const sidebarProps = createSidebarProps(locale, intl as IntlShape);
+  return { locale, messages, direction, sidebarProps };
 };
 
 export default function App() {
-  const { locale, messages, direction } = useLoaderData<LoaderProps>();
+  const { locale, messages, direction, sidebarProps } =
+    useLoaderData<typeof loader>();
 
-  console.log({ locale, messages, direction });
-
-  const setLanguage = (lang: string) => {
-    requests.cookies.setLocaleToLocalCookies(lang);
-  };
+  if (sidebarProps.quickActions.languages) {
+    sidebarProps.quickActions.languages.handleChange = (lang: LanguageCode) => {
+      requests.cookies.setLocaleToLocalCookies(lang);
+      window.location.reload();
+    };
+  }
 
   return (
     <html lang={locale} dir={direction}>
@@ -53,16 +112,9 @@ export default function App() {
       </head>
       <body>
         <IntlProvider locale={locale} messages={messages}>
-          <a href="#" onClick={() => setLanguage('he')}>
-            HE |
-          </a>
-          <a href="#" onClick={() => setLanguage('nl')}>
-            NL |
-          </a>
-          <a href="#" onClick={() => setLanguage('en')}>
-            EN
-          </a>
-          <Outlet />
+          <Layout sidebar={sidebarProps}>
+            <Outlet />
+          </Layout>
         </IntlProvider>
         <ScrollRestoration />
         <Scripts />

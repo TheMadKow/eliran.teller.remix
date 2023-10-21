@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 import { mockSideNavigation } from '../_mock/mockData';
 
 const meta = {
-  title: 'Components/Side Navigation/Sections/Avatar',
+  title: 'Components/Side Bar/Sections/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   parameters: {

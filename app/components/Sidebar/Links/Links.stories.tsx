@@ -5,7 +5,7 @@ import Links from './Links';
 import { mockSideNavigation } from '../_mock/mockData';
 
 const meta = {
-  title: 'Components/Side Navigation/Sections/Links',
+  title: 'Components/Side Bar/Sections/Links',
   component: Links,
   tags: ['autodocs'],
   parameters: {

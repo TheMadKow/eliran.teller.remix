@@ -19,8 +19,8 @@ interface QuickLanguageProps {
 
 export interface QuickActionsProps {
   languages: {
+    handleChange: (lang: LanguageCode) => void;
     active: LanguageCode;
-    onChange: (lang: LanguageCode) => void;
     allowed: Language[];
   };
   resume: {
@@ -50,7 +50,12 @@ function LanguageSelect({
       onClick={onClick}
       className={clsx(styles.quickButton, styles.language)}
     >
-      <GlobeIcon aria-label={language.name} className={styles.icon} />
+      {showToggle && (
+        <GlobeIcon
+          aria-label={language.name}
+          className={clsx(styles.icon, styles.languageIcon)}
+        />
+      )}
       <div className={styles.languageText}>{language.name}</div>
       {showToggle && <ChevronUpIcon />}
     </div>
@@ -68,7 +73,7 @@ export default function Avatar({
   };
   const onInactiveLanguageClicked = (lang: LanguageCode) => {
     setShowLanguage(false);
-    languages.onChange(lang);
+    languages.handleChange(lang);
   };
 
   const selectedLanguage = languages.allowed.find(

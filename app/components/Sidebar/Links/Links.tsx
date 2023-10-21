@@ -1,22 +1,34 @@
 import { NavLink } from '@remix-run/react';
 import styles from './Links.module.css';
-import type { ReactNode } from 'react';
-import type { IconProps } from '~/components/Icons/types';
+import { CogIcon, FaceIcon } from '~/components/Icons';
+
 export interface LinksProps {
-  links: LinkItem[];
+  about: LinkItem;
+  cv: LinkItem;
 }
 
 export interface LinkItem {
   id: string;
   title: string;
   url: string;
-  Icon: (props: Partial<IconProps>) => ReactNode;
 }
 
-export default function Menu({ links }: LinksProps) {
+function LinkIcon({ id, title }: { id: string; title: string }) {
+  switch (id) {
+    case 'about':
+      return <CogIcon aria-label={title} />;
+    case 'cv':
+      return <FaceIcon aria-label={title} />;
+  }
+
+  return null;
+}
+
+export default function Menu({ about, cv }: LinksProps) {
+  const linkList = [about, cv];
   return (
     <div role="document" className={styles.container}>
-      {links.map((link) => (
+      {linkList.map((link) => (
         <NavLink className={styles.link} key={link.id} to={link.url}>
           {({ isActive }) => (
             <div
@@ -24,7 +36,7 @@ export default function Menu({ links }: LinksProps) {
                 isActive ? styles.linkBoxActive : ''
               }`}
             >
-              <link.Icon aria-label={link.title} />
+              <LinkIcon id={link.id} title={link.title} />
               <span>{link.title}</span>
             </div>
           )}

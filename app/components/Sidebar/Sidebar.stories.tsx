@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { reactRouterParameters } from 'storybook-addon-react-router-v6';
 
-import SideNavigation from './SideNavigation';
+import SideNavigation from './Sidebar';
 import { mockSideNavigation } from './_mock/mockData';
 
 const meta = {
-  title: 'Components/Side Navigation',
+  title: 'Components/Side Bar',
   component: SideNavigation,
   tags: ['autodocs'],
   parameters: {

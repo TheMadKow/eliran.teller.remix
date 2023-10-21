@@ -1,6 +1,6 @@
 {
-  "sidemenu.name": "Eliran Teller",
-  "sidemenu.subtitle": "Software Ontwikkelaar",
-  "sidemenu.aboutMe": "Over mij",
-  "sidemenu.cv": "Curriculum Vitae"
+  "sidebar.name": "Eliran Teller",
+  "sidebar.subtitle": "Software Ontwikkelaar",
+  "sidebar.aboutMe": "Over mij",
+  "sidebar.cv": "Curriculum Vitae"
 }

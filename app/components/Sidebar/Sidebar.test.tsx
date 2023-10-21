@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { render, screen, cleanup } from '~/utils/test';
-import SideNavigation from './SideNavigation';
+import SideNavigation from './Sidebar';
 import { mockSideNavigation } from './_mock/mockData';
 import Avatar from './Avatar/Avatar';
 

@@ -4,7 +4,7 @@ import QuickActions from './QuickActions';
 import { mockSideNavigation } from '../_mock/mockData';
 
 const meta = {
-  title: 'Components/Side Navigation/Sections/QuickActions',
+  title: 'Components/Side Bar/Sections/QuickActions',
   component: QuickActions,
   tags: ['autodocs'],
   parameters: {
