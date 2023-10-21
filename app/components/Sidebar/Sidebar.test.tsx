@@ -14,7 +14,7 @@ describe('<SideNavigation/>', async () => {
     render(<SideNavigation {...mockSideNavigation} />);
 
     // ACT + ASSERT
-    await screen.findByRole('menu');
+    await screen.findByRole('menubar');
   });
 
   it('should render (sub) components correctly', async () => {
