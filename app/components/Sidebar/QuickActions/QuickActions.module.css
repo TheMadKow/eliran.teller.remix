@@ -47,7 +47,8 @@
   width: 273px;
   height: 56px;
   margin-left: -1px;
-  border-radius: 0px 28px 28px 0px;
+  border-end-end-radius: 28px;
+  border-start-end-radius: 28px;
   gap: 0;
 
   font-size: 20px;
@@ -76,12 +77,12 @@
 
 .languageText {
   width: 85px;
-  padding-left: 1.65rem;
-  padding-right: 1.65rem;
+  padding-inline-start: 1.65rem;
+  padding-inline-end: 1.65rem;
 }
 
 .languageIcon {
-  padding-left: 4.6rem;
+  padding-inline-start: 4.6rem;
 }
 
 .resume {
