@@ -1,4 +1,3 @@
-import { CogIcon, FaceIcon } from '~/components/Icons';
 import type { SidebarProps } from '../Sidebar';
 
 export const mockSideNavigation: SidebarProps = {
@@ -9,24 +8,20 @@ export const mockSideNavigation: SidebarProps = {
     subtitle: 'Software Developer',
   },
   links: {
-    links: [
-      {
-        id: 'about',
-        title: 'About Me',
-        url: '/about',
-        Icon: (props) => <FaceIcon {...props} />,
-      },
-      {
-        id: 'resume',
-        title: 'Resume',
-        url: '/resume',
-        Icon: (props) => <CogIcon {...props} />,
-      },
-    ],
+    about: {
+      id: 'about',
+      title: 'About Me',
+      url: '/about',
+    },
+    cv: {
+      id: 'cv',
+      title: 'Resume',
+      url: '/resume',
+    },
   },
   quickActions: {
     languages: {
-      onChange: (lang) => console.log('lang click: ', lang),
+      handleChange: (lang) => console.log('lang click: ', lang),
       active: 'en',
       allowed: [
         { code: 'en', name: 'English' },
